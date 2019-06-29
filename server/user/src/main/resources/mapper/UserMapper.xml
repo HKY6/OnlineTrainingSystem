@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iqiaoxu.user.train.dao.UserMapper">
+    <resultMap id="userMap" type="User">
+        <id property="id" jdbcType="INTEGER" column="user_id"/>
+        <result property="email" jdbcType="VARCHAR" column="user_email"/>
+        <result property="name" jdbcType="VARCHAR" column="user_name"/>
+        <result property="avatar" jdbcType="VARCHAR" column="user_avatar"/>
+        <result property="pwd" jdbcType="VARCHAR" column="user_pwd"/>
+        <result property="salt" jdbcType="VARCHAR" column="user_salt"/>
+        <result property="idNo" jdbcType="VARCHAR" column="user_idno"/>
+        <result property="tel" jdbcType="VARCHAR" column="user_tel"/>
+        <result property="birthday" jdbcType="DATE" column="user_birthday"/>
+        <result property="address" jdbcType="VARCHAR" column="user_address"/>
+        <result property="national" jdbcType="VARCHAR" column="user_national"/>
+        <result property="politics" jdbcType="VARCHAR" column="user_politics"/>
+    </resultMap>
+    <!--增-->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert ignore into `user` (`user_email`, `user_pwd`)
+        values (#{email}, #{pwd})
+    </insert>
+</mapper>
