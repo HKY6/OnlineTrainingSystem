@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iqiaoxu.user.train.dao.UserMapper">
+    <resultMap id="newsMap" type="News">
+        <id property="id" jdbcType="INTEGER" column="news_id"/>
+        <result property="title" jdbcType="VARCHAR" column="news_title"/>
+        <result property="content" jdbcType="VARCHAR" column="news_content"/>
+    </resultMap>
+    <insert id="insertNews" parameterType="News" useGeneratedKeys="true" keyProperty="id">
+        INSERT IGNORE INTO `news`(`news_title`, `news_content`)
+        VALUES (#{title}, #{content});
+    </insert>
+    <update id="updateNews">
+        UPDATE `news`
+        SET `news_title`   = #{title},
+            `news_content` = #{content}
+        WHERE `news_id` = #{id};
+    </update>
+    <select id="selectNewsById" resultMap="newsMap">
+        SELECT *
+        FROM `news`
+        WHERE (`news_id` = #{id});
+    </select>
+    <select id="selectNewsByPage" resultMap="newsMap">
+        SELECT *
+        FROM `news`
+        LIMIT #{start},#{end};
+    </select>
+</mapper>
