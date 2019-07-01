@@ -51,7 +51,7 @@ public class UserController {
     }
 
     @GetMapping("/hello")
-    public String hello(String name){
-        return "Hello "+name+"! this is user project!";
+    public String hello(){
+        return "Hello! this is users controller!";
     }
 }

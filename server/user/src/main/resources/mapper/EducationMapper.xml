@@ -12,4 +12,14 @@
         <result property="university" jdbcType="VARCHAR" column="university"/>
         <result property="major" jdbcType="VARCHAR" column="major"/>
     </resultMap>
+    <select id="selectEducationById">
+        SELECT *
+        FROM `education`
+        WHERE (`edu_id` = #{id});
+    </select>
+    <select id="selectEducationsByIdNo">
+        SELECT *
+        FROM `education`
+        WHERE `user_idno` = #{idno};
+    </select>
 </mapper>
