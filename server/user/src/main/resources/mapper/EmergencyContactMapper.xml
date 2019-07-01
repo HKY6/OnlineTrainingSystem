@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iqiaoxu.user.train.dao.EmergencyContactMapper">
+    <resultMap id="emergencyContactMap" type="EmergencyContact">
+        <id property="id" jdbcType="VARCHAR" column="emergency_id"/>
+        <result property="userIdNo" jdbcType="VARCHAR" column="user_idno"/>
+        <result property="name" jdbcType="VARCHAR" column="emergency_name"/>
+        <result property="address" jdbcType="VARCHAR" column="emergency_address"/>
+        <result property="tel" jdbcType="VARCHAR" column="emergency_tel"/>
+    </resultMap>
+</mapper>

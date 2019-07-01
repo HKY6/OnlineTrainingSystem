@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iqiaoxu.user.train.dao.WorkExperienceMapper">
+    <resultMap id="workExperienceMap" type="WorkExperience">
+        <id property="id" jdbcType="VARCHAR" column="work_id"/>
+        <result property="userIdNo" jdbcType="VARCHAR" column="user_idno"/>
+        <result property="startDate" jdbcType="DATE" column="start_date"/>
+        <result property="endDate" jdbcType="DATE" column="end_date"/>
+        <result property="org" jdbcType="VARCHAR" column="work_org"/>
+        <result property="duty" jdbcType="VARCHAR" column="work_duty"/>
+    </resultMap>
+</mapper>

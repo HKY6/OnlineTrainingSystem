@@ -8,5 +8,8 @@
     </typeAliases>
     <mappers>
         <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/EducationMapper.xml"/>
+        <mapper resource="mapper/EmergencyContactMapper.xml"/>
+        <mapper resource="mapper/WorkExperienceMapper.xml"/>
     </mappers>
 </configuration>

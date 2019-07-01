@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iqiaoxu.user.train.dao.EducationMapper">
+    <resultMap id="educationMap" type="Education">
+        <id property="id" jdbcType="VARCHAR" column="edu_id"/>
+        <result property="userIdNo" jdbcType="VARCHAR" column="user_idno"/>
+        <result property="startDate" jdbcType="DATE" column="start_date"/>
+        <result property="endDate" jdbcType="DATE" column="end_date"/>
+        <result property="education" jdbcType="VARCHAR" column="education"/>
+        <result property="university" jdbcType="VARCHAR" column="university"/>
+        <result property="major" jdbcType="VARCHAR" column="major"/>
+    </resultMap>
+</mapper>
