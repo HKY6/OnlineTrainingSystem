@@ -22,29 +22,31 @@ public class EmergencyContactController {
 
     @GetMapping("/{id}")
     public EmergencyContact getEmergencyContact(@PathVariable("id") int id){
-        return null;
+        return emergencyContactService.getEmergencyContact(id);
     }
 
     @GetMapping
     public List<EmergencyContact> getEmergencyContacts(@RequestParam("idno") int idno){
-        return null;
+        return emergencyContactService.getEmergencyContacts(idno);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addEmergencyContacts(@RequestBody EmergencyContact... contacts){
-
+        int affected = emergencyContactService.addEmergencyContacts(contacts);
     }
 
     @PutMapping("/{id}")
     public EmergencyContact modifyEmergencyContact(@PathVariable("id")int id,@RequestBody EmergencyContact contact){
+        contact.setId(id);
+        int affected = emergencyContactService.modifyEmergencyContact(contact);
         return null;
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeEmergencyContact(@PathVariable("id")int id){
-
+        int affected = emergencyContactService.removeEmergencyContact(id);
     }
 
     @GetMapping("/hello")

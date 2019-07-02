@@ -10,4 +10,32 @@
         <result property="address" jdbcType="VARCHAR" column="emergency_address"/>
         <result property="tel" jdbcType="VARCHAR" column="emergency_tel"/>
     </resultMap>
+    <select id="selectEmergencyContact" resultMap="emergencyContactMap">
+        SELECT *
+        FROM `emergencycontact`
+        WHERE (`emergency_id` = #{id});
+    </select>
+    <select id="selectEmergencyContacts" resultMap="emergencyContactMap">
+        SELECT *
+        FROM `emergencycontact`
+        WHERE `user_idno` = #{idno};
+    </select>
+    <insert id="insertEmergencyContacts" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `emergencycontact` (`user_idno`, `emergency_name`, `emergency_address`, `emergency_tel`) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.userIdNo},#{item.name},#{item.address},#{item.tel})
+        </foreach>
+    </insert>
+    <update id="updateEmergencyContact" parameterType="EmergencyContact">
+        UPDATE `emergencycontact`
+        SET `emergency_name`    = #{name},
+            `emergency_address` = #{address},
+            `emergency_tel`     = #{tel}
+        WHERE emergency_id = #{id};
+    </update>
+    <delete id="deleteEmergencyContact">
+        DELETE
+        FROM `emergencycontact`
+        WHERE `emergency_id` = #{id};
+    </delete>
 </mapper>

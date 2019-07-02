@@ -22,29 +22,30 @@ public class WorkExperienceController {
 
     @GetMapping("/{id}")
     public WorkExperience getWorkExperience(@PathVariable("id")int id){
-        return null;
+        return workExperienceService.getWorkExperience(id);
     }
 
     @GetMapping
     public List<WorkExperience> getWorkExperiences(@RequestParam("idno")int idno){
-        return null;
+        return workExperienceService.getWorkExperiences(idno);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addWorkExperiences(@RequestBody WorkExperience... workExperiences){
-
+    public List<WorkExperience> addWorkExperiences(@RequestBody WorkExperience... workExperiences){
+        return workExperienceService.addWorkExperiences(workExperiences);
     }
 
     @PutMapping("/{id}")
     public WorkExperience modifyWorkExperience(@PathVariable("id") int id, @RequestBody WorkExperience experience){
-        return null;
+        experience.setId(id);
+        return workExperienceService.modifyWorkExperience(experience);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeWorkExperience(@PathVariable("id") int id){
-
+        int affected = workExperienceService.removeWorkExperience(id);
     }
 
     @GetMapping("/hello")

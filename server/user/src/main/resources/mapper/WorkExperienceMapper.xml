@@ -11,4 +11,33 @@
         <result property="org" jdbcType="VARCHAR" column="work_org"/>
         <result property="duty" jdbcType="VARCHAR" column="work_duty"/>
     </resultMap>
+    <select id="selectWorkExperience" resultMap="educationMap">
+        SELECT *
+        FROM `workexperience`
+        WHERE (`work_id` = #{id});
+    </select>
+    <select id="selectWorkExperiences" resultMap="educationMap">
+        SELECT *
+        FROM `workexperience`
+        WHERE `user_idno` = #{idno};
+    </select>
+    <insert id="insertWorkExperiences" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `workexperience` (`user_idno`, `start_date`, `end_date`, `work_org`, `work_duty`) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.userIdNo},#{item.startDate},#{item.endDate},#{item.org},#{item.duty})
+        </foreach>
+    </insert>
+    <update id="updateWorkExperience" parameterType="Education">
+        UPDATE `workexperience`
+        SET `start_date` = #{startDate},
+            `end_date`   = #{endDate},
+            `work_org`   = #{org},
+            `work_duty`  = #{duty}
+        WHERE `work_id` = #{id}
+    </update>
+    <delete id="deleteWorkExperience">
+        DELETE
+        FROM `workexperience`
+        WHERE `work_id` = #{id};
+    </delete>
 </mapper>

@@ -1,6 +1,9 @@
 package com.iqiaoxu.train.user.dao;
 
+import com.iqiaoxu.train.user.entity.EmergencyContact;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * @author 游由
@@ -10,4 +13,13 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface EmergencyContactMapper {
+    EmergencyContact selectEmergencyContact(int id);
+
+    List<EmergencyContact> selectEmergencyContacts(int idno);
+
+    int insertEmergencyContacts(EmergencyContact[] contacts);
+
+    int updateEmergencyContact(EmergencyContact contact);
+
+    int deleteEmergencyContact(int id);
 }
