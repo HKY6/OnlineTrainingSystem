@@ -14,4 +14,10 @@ public interface IEducationService {
     Education getEducation(int id);
 
     List<Education> getEducations(int idno);
+
+    int addEducations(Education[] educations);
+
+    int modifyEducation(Education education);
+
+    int removeEducation(int id);
 }

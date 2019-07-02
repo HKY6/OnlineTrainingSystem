@@ -12,14 +12,34 @@
         <result property="university" jdbcType="VARCHAR" column="university"/>
         <result property="major" jdbcType="VARCHAR" column="major"/>
     </resultMap>
-    <select id="selectEducationById">
+    <select id="selectEducationById" resultMap="educationMap">
         SELECT *
         FROM `education`
         WHERE (`edu_id` = #{id});
     </select>
-    <select id="selectEducationsByIdNo">
+    <select id="selectEducationsByIdNo" resultMap="educationMap">
         SELECT *
         FROM `education`
         WHERE `user_idno` = #{idno};
     </select>
+    <insert id="insertEducations" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `education` (user_idno, start_date, end_date, education, university, major) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.userIdNo},#{item.startDate},#{item.endDate},#{item.education},#{item.university},#{item.major})
+        </foreach>
+    </insert>
+    <update id="updateEducation" parameterType="Education">
+        UPDATE `education`
+        SET `start_date` = #{startDate},
+            `end_date`   = #{endDate},
+            `education`  = #{education},
+            `university` = #{university},
+            `major`      = #{major}
+        WHERE edu_id = #{id}
+    </update>
+    <delete id="deleteEducation">
+        DELETE
+        FROM `education`
+        WHERE `edu_id` = #{id};
+    </delete>
 </mapper>

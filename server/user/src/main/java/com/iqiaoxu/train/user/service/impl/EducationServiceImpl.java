@@ -28,4 +28,19 @@ public class EducationServiceImpl implements IEducationService {
     public List<Education> getEducations(int idno) {
         return educationMapper.selectEducationsByIdNo(idno);
     }
+
+    @Override
+    public int addEducations(Education[] educations) {
+        return educationMapper.insertEducations(educations);
+    }
+
+    @Override
+    public int modifyEducation(Education education) {
+        return educationMapper.updateEducation(education);
+    }
+
+    @Override
+    public int removeEducation(int id) {
+        return educationMapper.deleteEducation(id);
+    }
 }

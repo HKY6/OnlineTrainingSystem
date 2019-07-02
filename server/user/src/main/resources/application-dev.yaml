@@ -8,5 +8,5 @@ spring:
   datasource:
     username: root
     password: 'q1909321004Q_'
-    url: 'jdbc:mysql://localhost:3306/chinasafetydb?useUnicode=true&characterEncoding=gb2312&useSSL=true&serverTimezone=UTC'
+    url: 'jdbc:mysql://localhost:3306/chinasafetydb?useUnicode=true&characterEncoding=gb2312&useSSL=true&serverTimezone=UTC&useAffectedRows=true'
     driver-class-name: com.mysql.cj.jdbc.Driver

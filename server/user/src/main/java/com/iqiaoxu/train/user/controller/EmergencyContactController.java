@@ -1,9 +1,12 @@
 package com.iqiaoxu.train.user.controller;
 
+import com.iqiaoxu.train.user.entity.EmergencyContact;
 import com.iqiaoxu.train.user.service.IEmergencyContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author 游由
@@ -12,8 +15,40 @@ import org.springframework.web.bind.annotation.RestController;
  * create time 2019/7/1 15:51
  */
 @RestController
-@RequestMapping("/emergency-contact")
+@RequestMapping("/emergency-contacts")
 public class EmergencyContactController {
     @Autowired
     private IEmergencyContactService emergencyContactService;
+
+    @GetMapping("/{id}")
+    public EmergencyContact getEmergencyContact(@PathVariable("id") int id){
+        return null;
+    }
+
+    @GetMapping
+    public List<EmergencyContact> getEmergencyContacts(@RequestParam("idno") int idno){
+        return null;
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addEmergencyContacts(@RequestBody EmergencyContact... contacts){
+
+    }
+
+    @PutMapping("/{id}")
+    public EmergencyContact modifyEmergencyContact(@PathVariable("id")int id,@RequestBody EmergencyContact contact){
+        return null;
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeEmergencyContact(@PathVariable("id")int id){
+
+    }
+
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello! this is emergency contacts controller!";
+    }
 }

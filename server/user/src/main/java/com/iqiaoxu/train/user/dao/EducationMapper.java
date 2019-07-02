@@ -16,4 +16,10 @@ public interface EducationMapper {
     Education selectEducationById(int id);
 
     List<Education> selectEducationsByIdNo(int idno);
+
+    int insertEducations(Education[] educations);
+
+    int updateEducation(Education education);
+
+    int deleteEducation(int id);
 }

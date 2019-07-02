@@ -3,6 +3,7 @@ package com.iqiaoxu.train.user.controller;
 import com.iqiaoxu.train.user.entity.Education;
 import com.iqiaoxu.train.user.service.IEducationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,13 +31,22 @@ public class EducationController {
     }
 
     @PostMapping
-    public void addEducations(Education... educations){
-        //return educationService.addEducations(educations);
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addEducations(@RequestBody Education... educations){
+        educationService.addEducations(educations);
     }
 
-    @PutMapping("{id}")
-    public void modifyEducation(@PathVariable("id")int id,Education education){
+    @PutMapping("/{id}")
+    public Education modifyEducation(@PathVariable("id")int id,@RequestBody Education education){
+        education.setId(id);
+        educationService.modifyEducation(education);
+        return education;
+    }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeEducation(@PathVariable("id")int id){
+        educationService.removeEducation(id);
     }
 
     @GetMapping("/hello")
