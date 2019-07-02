@@ -9,26 +9,21 @@ import java.util.Date;
  * create time 2019/6/29 7:34
  */
 public class User {
-    private int id;
-    private String email;
-    private String name;
-    private String avatar;
-    private String pwd;
     private String idNo;
+    private String email;
     private String tel;
+    private String name;
+    private String photo;
+    private String pwd;
+    private String salt;
+    private Boolean gender;
     private Date birthday;
     private String address;
+    private String zip;
     private String national;
     private String politics;
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private Integer role;
+    private UserStatus status;
 
     public String getEmail() {
         return email;
@@ -46,12 +41,12 @@ public class User {
         this.name = name;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public String getPwd() {
@@ -61,14 +56,6 @@ public class User {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
-
-//    public String getSalt() {
-//        return salt;
-//    }
-//
-//    public void setSalt(String salt) {
-//        this.salt = salt;
-//    }
 
     public String getIdNo() {
         return idNo;
@@ -116,5 +103,45 @@ public class User {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public Boolean getGender() {
+        return gender;
+    }
+
+    public void setGender(Boolean gender) {
+        this.gender = gender;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
+
+    public UserStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(UserStatus status) {
+        this.status = status;
     }
 }

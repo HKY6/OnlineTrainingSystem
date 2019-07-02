@@ -15,36 +15,4 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements IUserService {
 
-    @Autowired
-    UserMapper userMapper;
-
-    @Override
-    public User addUser(String email, String pwd) {
-        return null;
-    }
-
-    @Override
-    public User updateUserInfo(User user) {
-        return null;
-    }
-
-    @Override
-    public User updateUserPartInfo(User user) {
-        return null;
-    }
-
-    @Override
-    public User getUser(int id) {
-        return null;
-    }
-
-    @Override
-    public String resetEmail(int id, String email) {
-        return null;
-    }
-
-    @Override
-    public String resetPwd(int id, String oldPwd, String newPwd) {
-        return null;
-    }
 }

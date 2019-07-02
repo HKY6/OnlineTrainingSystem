@@ -12,17 +12,17 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper {
 
-    User insertUser(String email, String pwd);
-
-    User selectUserByEmail(String pwd);
-
-    User selectUserById(int id);
-
-    void updateUserInfo(User user);
-
-    void updatePwd(int id, String hashPwd);
-
-    void updateEmail(int id, String email);
-
-    void deleteUser(int id);
+//    User insertUser(String email, String pwd);
+//
+//    User selectUserByEmail(String pwd);
+//
+//    User selectUserById(int id);
+//
+//    void updateUserInfo(User user);
+//
+//    void updatePwd(int id, String hashPwd);
+//
+//    void updateEmail(int id, String email);
+//
+//    void deleteUser(int id);
 }
