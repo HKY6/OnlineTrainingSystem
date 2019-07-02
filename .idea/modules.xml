@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/OnlineTrainingSystem.iml" filepath="$PROJECT_DIR$/OnlineTrainingSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/common/common.iml" filepath="$PROJECT_DIR$/server/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/news/news.iml" filepath="$PROJECT_DIR$/server/news/news.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/oauth/oauth.iml" filepath="$PROJECT_DIR$/server/oauth/oauth.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/user/user.iml" filepath="$PROJECT_DIR$/server/user/user.iml" />
     </modules>
   </component>

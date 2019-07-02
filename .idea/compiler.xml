@@ -8,12 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="common" />
         <module name="news" />
+        <module name="oauth" />
         <module name="user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common" target="1.8" />
       <module name="news" target="1.8" />
+      <module name="oauth" target="1.8" />
       <module name="user" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -21,6 +23,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common" options="-parameters" />
       <module name="news" options="-parameters" />
+      <module name="oauth" options="-parameters" />
       <module name="user" options="-parameters" />
     </option>
   </component>
