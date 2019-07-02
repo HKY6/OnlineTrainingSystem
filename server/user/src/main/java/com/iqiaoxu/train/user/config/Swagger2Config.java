@@ -16,7 +16,7 @@ import springfox.documentation.spring.web.plugins.Docket;
  * @since 0.0.1
  * create time 2019/6/29 10:54
  */
-@Configuration
+//@Configuration
 public class Swagger2Config {
     @Bean
     public Docket getDocket(){
