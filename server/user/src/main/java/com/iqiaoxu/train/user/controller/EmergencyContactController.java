@@ -40,7 +40,7 @@ public class EmergencyContactController {
     public EmergencyContact modifyEmergencyContact(@PathVariable("id")int id,@RequestBody EmergencyContact contact){
         contact.setId(id);
         int affected = emergencyContactService.modifyEmergencyContact(contact);
-        return null;
+        return contact;
     }
 
     @DeleteMapping("/{id}")
