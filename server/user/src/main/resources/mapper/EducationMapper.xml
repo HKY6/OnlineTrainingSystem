@@ -2,30 +2,30 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.iqiaoxu.user.train.dao.EducationMapper">
+<mapper namespace="com.iqiaoxu.train.user.dao.EducationMapper">
     <resultMap id="educationMap" type="Education">
-        <id property="id" jdbcType="VARCHAR" column="edu_id"/>
-        <result property="userIdNo" jdbcType="VARCHAR" column="user_idno"/>
+        <id property="id" jdbcType="INTEGER" column="edu_id"/>
+        <result property="userId" jdbcType="INTEGER" column="user_id"/>
         <result property="startDate" jdbcType="DATE" column="start_date"/>
         <result property="endDate" jdbcType="DATE" column="end_date"/>
         <result property="education" jdbcType="VARCHAR" column="education"/>
         <result property="university" jdbcType="VARCHAR" column="university"/>
         <result property="major" jdbcType="VARCHAR" column="major"/>
     </resultMap>
-    <select id="selectEducationById" resultMap="educationMap">
+    <select id="selectEducation" resultMap="educationMap">
         SELECT *
         FROM `education`
         WHERE (`edu_id` = #{id});
     </select>
-    <select id="selectEducationsByIdNo" resultMap="educationMap">
+    <select id="selectEducations" resultMap="educationMap">
         SELECT *
         FROM `education`
-        WHERE `user_idno` = #{idno};
+        WHERE `user_id` = #{userId};
     </select>
     <insert id="insertEducations" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO `education` (user_idno, start_date, end_date, education, university, major) VALUES
+        INSERT INTO `education` (`user_id`, `start_date`, `end_date`, `education`, `university`, `major`) VALUES
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.userIdNo},#{item.startDate},#{item.endDate},#{item.education},#{item.university},#{item.major})
+            (#{item.userId},#{item.startDate},#{item.endDate},#{item.education},#{item.university},#{item.major})
         </foreach>
     </insert>
     <update id="updateEducation" parameterType="Education">

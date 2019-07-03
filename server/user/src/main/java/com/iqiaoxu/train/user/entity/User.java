@@ -1,5 +1,9 @@
 package com.iqiaoxu.train.user.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.Email;
 import java.util.Date;
 
 /**
@@ -9,12 +13,18 @@ import java.util.Date;
  * create time 2019/6/29 7:34
  */
 public class User {
+    private int id;
     private String idNo;
+    @Email
     private String email;
     private String tel;
     private String name;
     private String photo;
+    //序列化 对象转存储 反序列化 存储转对象
+    //仅对密码进行反序列化防止泄露
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String pwd;
+    @JsonIgnore
     private String salt;
     private Boolean gender;
     private Date birthday;
@@ -143,5 +153,13 @@ public class User {
 
     public void setStatus(UserStatus status) {
         this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -2,9 +2,11 @@ package com.iqiaoxu.train.user.controller;
 
 import com.iqiaoxu.train.user.entity.User;
 import com.iqiaoxu.train.user.service.IUserService;
+import com.iqiaoxu.train.user.util.PwdUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author 游由
@@ -18,11 +20,33 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-//    @PostMapping()
-//    public User newUser(String email,String pwd){
-//        //User user = new User();
-//        return userService.addUser(email,pwd);
-//    }
+    @GetMapping("/{id}")
+    public User getUser(@PathVariable("id")int id){
+        return userService.getUser(id);
+    }
+
+    @GetMapping()
+    public List<User> getUsers(){
+        return null;
+    }
+
+    @PostMapping()
+    public User addUser(@RequestBody User user){
+//        if(user.getEmail()==null||user.getTel()==null)
+//            return null;
+//        if(user.getPwd()==null)
+//            return null;
+        System.out.print(user.getPwd());
+        user.setSalt(PwdUtil.getSalt());
+        user.setPwd(PwdUtil.md5hash(user.getPwd(),user.getSalt()));
+
+        return userService.addUser(user);
+    }
+
+    @PutMapping("/{id}")
+    public User modifyUser(@PathVariable("id")int id,@RequestBody User user){
+        return null;
+    }
 //
 //    @PutMapping("/{id}")
 //    public User updateUserInfo(@PathVariable int id, @RequestBody User user){

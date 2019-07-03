@@ -15,7 +15,7 @@ import java.util.List;
 public interface WorkExperienceMapper {
     WorkExperience selectWorkExperience(int id);
 
-    List<WorkExperience> selectWorkExperiences(int idno);
+    List<WorkExperience> selectWorkExperiences(int userId);
 
     int insertWorkExperiences(WorkExperience[] workExperiences);
 

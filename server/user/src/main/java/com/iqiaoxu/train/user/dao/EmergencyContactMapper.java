@@ -15,7 +15,7 @@ import java.util.List;
 public interface EmergencyContactMapper {
     EmergencyContact selectEmergencyContact(int id);
 
-    List<EmergencyContact> selectEmergencyContacts(int idno);
+    List<EmergencyContact> selectEmergencyContacts(int userId);
 
     int insertEmergencyContacts(EmergencyContact[] contacts);
 

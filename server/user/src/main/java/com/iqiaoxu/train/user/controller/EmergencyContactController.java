@@ -26,8 +26,8 @@ public class EmergencyContactController {
     }
 
     @GetMapping
-    public List<EmergencyContact> getEmergencyContacts(@RequestParam("idno") int idno){
-        return emergencyContactService.getEmergencyContacts(idno);
+    public List<EmergencyContact> getEmergencyContacts(@RequestParam("user-id") int userId){
+        return emergencyContactService.getEmergencyContacts(userId);
     }
 
     @PostMapping

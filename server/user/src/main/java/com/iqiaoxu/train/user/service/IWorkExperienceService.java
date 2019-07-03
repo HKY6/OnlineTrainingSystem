@@ -13,7 +13,7 @@ import java.util.List;
 public interface IWorkExperienceService {
     WorkExperience getWorkExperience(int id);
 
-    List<WorkExperience> getWorkExperiences(int idno);
+    List<WorkExperience> getWorkExperiences(int userId);
 
     List<WorkExperience> addWorkExperiences(WorkExperience[] workExperiences);
 

@@ -26,8 +26,8 @@ public class WorkExperienceController {
     }
 
     @GetMapping
-    public List<WorkExperience> getWorkExperiences(@RequestParam("idno")int idno){
-        return workExperienceService.getWorkExperiences(idno);
+    public List<WorkExperience> getWorkExperiences(@RequestParam("user-id")int userId){
+        return workExperienceService.getWorkExperiences(userId);
     }
 
     @PostMapping

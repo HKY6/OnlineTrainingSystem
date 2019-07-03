@@ -26,8 +26,8 @@ public class WorkExperienceServiceImpl implements IWorkExperienceService {
     }
 
     @Override
-    public List<WorkExperience> getWorkExperiences(int idno) {
-        return workExperienceMapper.selectWorkExperiences(idno);
+    public List<WorkExperience> getWorkExperiences(int userId) {
+        return workExperienceMapper.selectWorkExperiences(userId);
     }
 
     @Override

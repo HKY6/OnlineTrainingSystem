@@ -25,8 +25,8 @@ public class EmergencyContactServiceImpl implements IEmergencyContactService {
     }
 
     @Override
-    public List<EmergencyContact> getEmergencyContacts(int idno) {
-        return emergencyContactMapper.selectEmergencyContacts(idno);
+    public List<EmergencyContact> getEmergencyContacts(int userId) {
+        return emergencyContactMapper.selectEmergencyContacts(userId);
     }
 
     @Override

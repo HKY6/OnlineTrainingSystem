@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.iqiaoxu.user.train.dao.EmergencyContactMapper">
+<mapper namespace="com.iqiaoxu.train.user.dao.EmergencyContactMapper">
     <resultMap id="emergencyContactMap" type="EmergencyContact">
-        <id property="id" jdbcType="VARCHAR" column="emergency_id"/>
-        <result property="userIdNo" jdbcType="VARCHAR" column="user_idno"/>
+        <id property="id" jdbcType="INTEGER" column="emergency_id"/>
+        <result property="userId" jdbcType="INTEGER" column="user_id"/>
         <result property="name" jdbcType="VARCHAR" column="emergency_name"/>
         <result property="address" jdbcType="VARCHAR" column="emergency_address"/>
         <result property="tel" jdbcType="VARCHAR" column="emergency_tel"/>
@@ -18,12 +18,12 @@
     <select id="selectEmergencyContacts" resultMap="emergencyContactMap">
         SELECT *
         FROM `emergencycontact`
-        WHERE `user_idno` = #{idno};
+        WHERE `user_id` = #{userId};
     </select>
     <insert id="insertEmergencyContacts" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO `emergencycontact` (`user_idno`, `emergency_name`, `emergency_address`, `emergency_tel`) VALUES
+        INSERT INTO `emergencycontact` (`user_id`, `emergency_name`, `emergency_address`, `emergency_tel`) VALUES
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.userIdNo},#{item.name},#{item.address},#{item.tel})
+            (#{item.userId},#{item.name},#{item.address},#{item.tel})
         </foreach>
     </insert>
     <update id="updateEmergencyContact" parameterType="EmergencyContact">

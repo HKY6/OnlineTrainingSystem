@@ -14,5 +14,18 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl implements IUserService {
+    @Autowired
+    UserMapper userMapper;
 
+    @Override
+    public User addUser(User user) {
+        int affected = userMapper.insertUser(user);
+        System.out.print(affected);
+        return user;
+    }
+
+    @Override
+    public User getUser(int id) {
+        return userMapper.selectUser(id);
+    }
 }

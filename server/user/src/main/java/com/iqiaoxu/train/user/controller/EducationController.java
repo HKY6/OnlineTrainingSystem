@@ -26,8 +26,8 @@ public class EducationController {
     }
 
     @GetMapping()
-    public List<Education> getEducations(@RequestParam("idno") int idno){
-        return educationService.getEducations(idno);
+    public List<Education> getEducations(@RequestParam("user-id") int userId){
+        return educationService.getEducations(userId);
     }
 
     @PostMapping

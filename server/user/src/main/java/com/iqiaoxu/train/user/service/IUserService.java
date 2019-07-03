@@ -9,6 +9,9 @@ import com.iqiaoxu.train.user.entity.User;
  * create time 2019/6/29 7:34
  */
 public interface IUserService {
+    User addUser(User user);
+
+    User getUser(int id);
 //    User addUser(String email, String pwd);
 //
 //    User updateUserInfo(User user);

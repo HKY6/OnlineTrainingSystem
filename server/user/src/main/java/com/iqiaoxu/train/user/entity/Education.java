@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class Education {
     private int id;
-    private String userIdNo;
+    private int userId;
     private Date startDate;
     private Date endDate;
     private String education;
@@ -25,12 +25,12 @@ public class Education {
         this.id = id;
     }
 
-    public String getUserIdNo() {
-        return userIdNo;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUserIdNo(String userIdNo) {
-        this.userIdNo = userIdNo;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public Date getStartDate() {

@@ -13,7 +13,7 @@ import java.util.List;
 public interface IEmergencyContactService {
     EmergencyContact getEmergencyContact(int id);
 
-    List<EmergencyContact> getEmergencyContacts(int idno);
+    List<EmergencyContact> getEmergencyContacts(int userId);
 
     int addEmergencyContacts(EmergencyContact[] contacts);
 

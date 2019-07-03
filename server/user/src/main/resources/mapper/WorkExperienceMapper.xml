@@ -2,32 +2,32 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.iqiaoxu.user.train.dao.WorkExperienceMapper">
+<mapper namespace="com.iqiaoxu.train.user.dao.WorkExperienceMapper">
     <resultMap id="workExperienceMap" type="WorkExperience">
-        <id property="id" jdbcType="VARCHAR" column="work_id"/>
-        <result property="userIdNo" jdbcType="VARCHAR" column="user_idno"/>
+        <id property="id" jdbcType="INTEGER" column="work_id"/>
+        <result property="userId" jdbcType="INTEGER" column="user_id"/>
         <result property="startDate" jdbcType="DATE" column="start_date"/>
         <result property="endDate" jdbcType="DATE" column="end_date"/>
         <result property="org" jdbcType="VARCHAR" column="work_org"/>
         <result property="duty" jdbcType="VARCHAR" column="work_duty"/>
     </resultMap>
-    <select id="selectWorkExperience" resultMap="educationMap">
+    <select id="selectWorkExperience" resultMap="workExperienceMap">
         SELECT *
         FROM `workexperience`
         WHERE (`work_id` = #{id});
     </select>
-    <select id="selectWorkExperiences" resultMap="educationMap">
+    <select id="selectWorkExperiences" resultMap="workExperienceMap">
         SELECT *
         FROM `workexperience`
-        WHERE `user_idno` = #{idno};
+        WHERE `user_id` = #{userId};
     </select>
     <insert id="insertWorkExperiences" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO `workexperience` (`user_idno`, `start_date`, `end_date`, `work_org`, `work_duty`) VALUES
+        INSERT INTO `workexperience` (`user_id`, `start_date`, `end_date`, `work_org`, `work_duty`) VALUES
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.userIdNo},#{item.startDate},#{item.endDate},#{item.org},#{item.duty})
+            (#{item.userId},#{item.startDate},#{item.endDate},#{item.org},#{item.duty})
         </foreach>
     </insert>
-    <update id="updateWorkExperience" parameterType="Education">
+    <update id="updateWorkExperience" parameterType="WorkExperience">
         UPDATE `workexperience`
         SET `start_date` = #{startDate},
             `end_date`   = #{endDate},

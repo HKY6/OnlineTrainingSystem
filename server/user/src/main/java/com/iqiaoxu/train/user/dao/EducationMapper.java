@@ -13,9 +13,9 @@ import java.util.List;
  */
 @Mapper
 public interface EducationMapper {
-    Education selectEducationById(int id);
+    Education selectEducation(int id);
 
-    List<Education> selectEducationsByIdNo(int idno);
+    List<Education> selectEducations(int userId);
 
     int insertEducations(Education[] educations);
 

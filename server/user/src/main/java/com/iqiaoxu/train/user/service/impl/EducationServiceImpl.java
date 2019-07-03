@@ -21,12 +21,12 @@ public class EducationServiceImpl implements IEducationService {
 
     @Override
     public Education getEducation(int id) {
-        return educationMapper.selectEducationById(id);
+        return educationMapper.selectEducation(id);
     }
 
     @Override
-    public List<Education> getEducations(int idno) {
-        return educationMapper.selectEducationsByIdNo(idno);
+    public List<Education> getEducations(int userId) {
+        return educationMapper.selectEducations(userId);
     }
 
     @Override

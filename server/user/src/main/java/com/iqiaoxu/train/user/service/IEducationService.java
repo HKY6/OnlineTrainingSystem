@@ -13,7 +13,7 @@ import java.util.List;
 public interface IEducationService {
     Education getEducation(int id);
 
-    List<Education> getEducations(int idno);
+    List<Education> getEducations(int userId);
 
     int addEducations(Education[] educations);
 

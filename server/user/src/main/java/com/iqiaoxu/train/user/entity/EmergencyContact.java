@@ -8,7 +8,7 @@ package com.iqiaoxu.train.user.entity;
  */
 public class EmergencyContact {
     private int id;
-    private String userIdNo;
+    private int userId;
     private String name;
     private String tel;
     private String address;
@@ -45,11 +45,11 @@ public class EmergencyContact {
         this.tel = tel;
     }
 
-    public String getUserIdNo() {
-        return userIdNo;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUserIdNo(String userIdNo) {
-        this.userIdNo = userIdNo;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
